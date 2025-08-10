@@ -7,15 +7,7 @@ return {
             "MunifTanjim/nui.nvim",
             "nvim-tree/nvim-web-devicons",
         },
-        lazy = false, -- neo-tree will lazily load itself,
-        opts = {
-            filesystem = {
-                filtered_items = {
-                    visible = true,
-                },
-            },
-        },
-
+        lazy = false,
         config = function()
             vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
             require("neo-tree").setup({
@@ -25,9 +17,9 @@ return {
                         event = "file_open_requested",
                         handler = function()
                             -- auto close
-                            -- vim.cmd("Neotree close")
+                            vim.cmd("Neotree close")
                             -- OR
-                            require("neo-tree.command").execute({ action = "close" })
+                            -- require("neo-tree.command").execute({ action = "close" })
                         end
                     },
 
